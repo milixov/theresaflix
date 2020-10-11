@@ -29,7 +29,7 @@ const Movies = ({route, navigation}) => {
 
     return (
         <SafeAreaView>
-            {loading && <Text style={styles.loading}>Loading...</Text>}
+            {!page && loading && <Text style={styles.loading}>Loading...</Text>}
             {data && (
                 <FlatList
                     data={data}
