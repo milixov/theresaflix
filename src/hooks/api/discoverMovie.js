@@ -27,7 +27,6 @@ const useDiscoverMovie = (genreId) => {
     return [
         store.movie.list,
         store.movie.totalPages,
-        store.movie.totalCount,
         store.movie.page,
         loading,
         setPage,

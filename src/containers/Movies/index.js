@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Text, SafeAreaView, FlatList} from 'react-native';
+import {StyleSheet, Text, SafeAreaView, FlatList} from 'react-native';
 import useDiscoverMovie from '../../hooks/api/discoverMovie';
 
 import ListDivider from '../../components/ListDivider';
@@ -8,18 +8,19 @@ import ListEmpty from '../../components/ListEmpty';
 import MovieItem from '../../components/MovieItem';
 
 const Movies = ({route, navigation}) => {
-    const [
-        data,
-        totalPages,
-        totalCount,
-        page,
-        loading,
-        setPage,
-    ] = useDiscoverMovie(route.params.id);
+    const [data, totalPages, page, loading, setPage] = useDiscoverMovie(
+        route.params.id,
+    );
 
     useEffect(() => {
         navigation.setOptions({title: `${route.params.name} Movies`});
     }, [navigation, route]);
+
+    const handleEndReached = () => {
+        if (page < totalPages) {
+            setPage(page + 1);
+        }
+    };
 
     const renderMovieItem = ({item}) => <MovieItem {...item} />;
     const renderListDivider = () => <ListDivider />;
@@ -28,9 +29,11 @@ const Movies = ({route, navigation}) => {
 
     return (
         <SafeAreaView>
+            {loading && <Text style={styles.loading}>Loading...</Text>}
             {data && (
                 <FlatList
                     data={data}
+                    onEndReached={handleEndReached}
                     renderItem={renderMovieItem}
                     ListEmptyComponent={renderListEmpty}
                     ListHeaderComponent={renderListFooter}
@@ -42,5 +45,14 @@ const Movies = ({route, navigation}) => {
         </SafeAreaView>
     );
 };
+
+const styles = StyleSheet.create({
+    loading: {
+        paddingVertical: 8,
+        marginHorizontal: 16,
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+});
 
 export default Movies;
