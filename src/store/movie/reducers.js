@@ -4,7 +4,7 @@ const initialState = {
     list: null,
     totalPages: null,
     totalCount: null,
-    page: null,
+    page: 1,
 };
 
 const movieReducer = (state = initialState, action) => {

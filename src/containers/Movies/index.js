@@ -42,6 +42,12 @@ const Movies = ({route, navigation}) => {
                     keyExtractor={(item, index) => `movie_${item.id || index}`}
                 />
             )}
+            {page && page >= 1 && loading && (
+                <Text style={styles.loading}>Loading More</Text>
+            )}
+            {page === totalPages && (
+                <Text style={styles.loading}>Finished</Text>
+            )}
         </SafeAreaView>
     );
 };
