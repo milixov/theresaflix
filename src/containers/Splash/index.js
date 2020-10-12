@@ -3,18 +3,15 @@ import {View, Text} from 'react-native';
 
 import useGenerateToken from '../../hooks/api/generateToken';
 
+import {styles} from './style';
+
 const Splash = () => {
-    const [token, loading] = useGenerateToken();
+    //login
+    const [] = useGenerateToken();
 
     return (
-        <View>
-            <Text>
-                {loading
-                    ? 'Authorizing...'
-                    : token
-                    ? 'Welcome'
-                    : 'Access Denied'}
-            </Text>
+        <View style={styles.container}>
+            <Text style={styles.text}>THERESAFLIX</Text>
         </View>
     );
 };

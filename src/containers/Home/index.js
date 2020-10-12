@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, FlatList, Text} from 'react-native';
+import {View, FlatList, Text} from 'react-native';
 
 import useGetCategories from '../../hooks/api/getCategories';
 
@@ -7,6 +7,8 @@ import CategoryItem from '../../components/CategoryItem';
 import ListDivider from '../../components/ListDivider';
 import ListFooter from '../../components/ListFooter';
 import ListEmpty from '../../components/ListEmpty';
+
+import {styles} from './style';
 
 const Home = ({navigation}) => {
     const [data, loading] = useGetCategories();
@@ -44,14 +46,5 @@ const Home = ({navigation}) => {
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    loading: {
-        paddingVertical: 8,
-        marginHorizontal: 16,
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
-});
 
 export default Home;

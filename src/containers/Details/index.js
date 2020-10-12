@@ -1,16 +1,11 @@
 import React, {useEffect} from 'react';
-import {
-    StyleSheet,
-    ScrollView,
-    View,
-    Text,
-    Image,
-    Dimensions,
-} from 'react-native';
+import {ScrollView, View, Text, Image} from 'react-native';
 import useGetMovieDetail from '../../hooks/api/getMovieDetail';
 
 import {IMAGE_BASE_URL} from '../../config/enums';
 const IMAGE_RESOLUTION = `${IMAGE_BASE_URL}/w500`;
+
+import {styles} from './style';
 
 const Details = ({route}) => {
     const [data, loading] = useGetMovieDetail(route.params.id);
@@ -66,60 +61,5 @@ const Details = ({route}) => {
         </ScrollView>
     );
 };
-
-const deviceWith = Dimensions.get('screen').width;
-
-const styles = StyleSheet.create({
-    loading: {
-        paddingVertical: 8,
-        marginHorizontal: 16,
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
-    image: {
-        width: deviceWith,
-        height: deviceWith,
-    },
-    container: {
-        padding: 24,
-    },
-    title: {
-        fontSize: 24,
-    },
-    desc: {
-        marginVertical: 16,
-    },
-    statistics: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-    },
-    divider: {
-        width: 1,
-        height: 30,
-        backgroundColor: 'lightgray',
-        marginVertical: 16,
-    },
-    label: {
-        color: 'gray',
-    },
-    value: {
-        fontSize: 18,
-    },
-    tagWrapper: {
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-    },
-    tag: {
-        color: 'white',
-        backgroundColor: 'gray',
-        paddingVertical: 2,
-        paddingHorizontal: 4,
-        borderRadius: 4,
-        marginRight: 4,
-    },
-});
 
 export default Details;

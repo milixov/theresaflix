@@ -1,11 +1,13 @@
 import React, {useEffect} from 'react';
-import {StyleSheet, Text, View, FlatList} from 'react-native';
+import {Text, View, FlatList} from 'react-native';
 import useDiscoverMovie from '../../hooks/api/discoverMovie';
 
 import ListDivider from '../../components/ListDivider';
 import ListFooter from '../../components/ListFooter';
 import ListEmpty from '../../components/ListEmpty';
 import MovieItem from '../../components/MovieItem';
+
+import {styles} from './style';
 
 const Movies = ({route, navigation}) => {
     const [data, totalPages, page, loading, setPage] = useDiscoverMovie(
@@ -59,14 +61,5 @@ const Movies = ({route, navigation}) => {
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    loading: {
-        paddingVertical: 8,
-        marginHorizontal: 16,
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
-});
 
 export default Movies;

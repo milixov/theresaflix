@@ -29,7 +29,11 @@ const Container = () => {
                         <Stack.Screen name="Details" component={Details} />
                     </>
                 ) : (
-                    <Stack.Screen name="Splash" component={Splash} />
+                    <Stack.Screen
+                        name="Splash"
+                        component={Splash}
+                        options={{headerShown: false}}
+                    />
                 )}
             </Stack.Navigator>
         </NavigationContainer>
