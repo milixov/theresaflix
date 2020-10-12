@@ -10,10 +10,6 @@ import {styles} from './style';
 const Details = ({route}) => {
     const [data, loading] = useGetMovieDetail(route.params.id);
 
-    useEffect(() => {
-        console.log(data);
-    }, [data]);
-
     return (
         <ScrollView>
             {loading && <Text>Loading...</Text>}

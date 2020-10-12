@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<Text
+  style={
+    Object {
+      "color": "gray",
+      "flex": 1,
+      "fontSize": 18,
+      "fontWeight": "bold",
+      "marginHorizontal": 16,
+    }
+  }
+/>
+`;
