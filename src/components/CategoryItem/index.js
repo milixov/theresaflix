@@ -1,5 +1,7 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {Text, TouchableOpacity} from 'react-native';
+
+import {styles} from './style';
 
 const CategoryItem = ({title, onPress}) => {
     return (
@@ -8,14 +10,5 @@ const CategoryItem = ({title, onPress}) => {
         </TouchableOpacity>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        padding: 24,
-        marginHorizontal: 16,
-        borderRadius: 8,
-        backgroundColor: '#FFFFFF',
-    },
-});
 
 export default CategoryItem;
