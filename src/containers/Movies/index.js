@@ -22,7 +22,15 @@ const Movies = ({route, navigation}) => {
         }
     };
 
-    const renderMovieItem = ({item}) => <MovieItem {...item} />;
+    const handleItemClick = (item) => {
+        navigation.navigate('Details', {
+            id: item.id,
+        });
+    };
+
+    const renderMovieItem = ({item}) => (
+        <MovieItem onPress={() => handleItemClick(item)} {...item} />
+    );
     const renderListDivider = () => <ListDivider />;
     const renderListFooter = () => <ListFooter />;
     const renderListEmpty = () => <ListEmpty text="No Item in the List" />;

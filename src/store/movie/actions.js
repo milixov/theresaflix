@@ -11,4 +11,10 @@ export const clearMovie = () => ({
     type: TYPE.CLEAR_MOVIES,
 });
 
+export const getMovieDetail = (request) => ({
+    type: TYPE.GET_MOVIE_DETAIL,
+    request,
+    meta: {cache: CACHE_TIME},
+});
+
 export default TYPE;

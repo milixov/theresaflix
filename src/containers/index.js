@@ -12,6 +12,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Home from './Home';
 import Splash from './Splash';
 import Movies from './Movies';
+import Details from './Details';
 
 const Stack = createStackNavigator();
 
@@ -25,6 +26,7 @@ const Container = () => {
                     <>
                         <Stack.Screen name="Categories" component={Home} />
                         <Stack.Screen name="Movies" component={Movies} />
+                        <Stack.Screen name="Details" component={Details} />
                     </>
                 ) : (
                     <Stack.Screen name="Splash" component={Splash} />

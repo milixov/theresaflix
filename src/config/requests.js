@@ -30,6 +30,15 @@ const requests = {
             },
         };
     },
+    getMovieDetail: (movieId) => {
+        return {
+            method: 'GET',
+            url: `/movie/${movieId}`,
+            params: {
+                api_key: API_KEY,
+            },
+        };
+    },
 };
 
 export default requests;
