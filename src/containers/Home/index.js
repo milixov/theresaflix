@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, SafeAreaView, FlatList, Text} from 'react-native';
+import {StyleSheet, View, FlatList, Text} from 'react-native';
 
 import useGetCategories from '../../hooks/api/getCategories';
 
@@ -26,7 +26,7 @@ const Home = ({navigation}) => {
     const renderListEmpty = () => <ListEmpty text="No Item in the List" />;
 
     return (
-        <SafeAreaView>
+        <View>
             {loading && <Text style={styles.loading}>Loading...</Text>}
             {!loading && data && (
                 <FlatList
@@ -41,7 +41,7 @@ const Home = ({navigation}) => {
                     }
                 />
             )}
-        </SafeAreaView>
+        </View>
     );
 };
 

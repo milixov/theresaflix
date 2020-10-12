@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {StyleSheet, Text, SafeAreaView, FlatList} from 'react-native';
+import {StyleSheet, Text, View, FlatList} from 'react-native';
 import useDiscoverMovie from '../../hooks/api/discoverMovie';
 
 import ListDivider from '../../components/ListDivider';
@@ -36,7 +36,7 @@ const Movies = ({route, navigation}) => {
     const renderListEmpty = () => <ListEmpty text="No Item in the List" />;
 
     return (
-        <SafeAreaView>
+        <View>
             {!page && loading && <Text style={styles.loading}>Loading...</Text>}
             {data && (
                 <FlatList
@@ -56,7 +56,7 @@ const Movies = ({route, navigation}) => {
             {page === totalPages && (
                 <Text style={styles.loading}>Finished</Text>
             )}
-        </SafeAreaView>
+        </View>
     );
 };
 
